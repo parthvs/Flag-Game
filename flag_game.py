@@ -94,7 +94,7 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    screen.fill((0, 0, 0))
+    screen.fill((255,255,255))
     if GAME_MODE==1:
         pixel_size = (iterations // 2) * 5
         if pixel_size == 0:
