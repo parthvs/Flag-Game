@@ -11,6 +11,7 @@ print("=========================================================================
 print("\n")
 print("GAME MODES\n1: PIXELATED \n2. NORMAL")
 GAME_MODE = int(input("ENTER GAME MODE "))
+SPEED = int(input("ENTER DIFFICULTY: 1.EAZY PEAZY LEMON SQUEEZY 2. NORMIE 3. VEXILLOLOGISTT"))
 GAME_LENGTH = int(input("Enter no of flags(less than 250) "))
 current_directory = os.getcwd()
 folder = os.path.join(current_directory, "FLAGS")
@@ -74,6 +75,19 @@ iterations = 0
 start = pygame.time.get_ticks()
 pixel_size = 1  
 
+
+if SPEED == 1:
+    image_duration =3
+    text_duration = image_duration + 2
+    gap = text_duration + 1
+elif SPEED == 2:
+    image_duration = 2
+    text_duration = image_duration + 1
+    gap = text_duration +1
+else:
+    image_duration = 0.5
+    text_duration = image_duration + 1
+    gap = text_duration  +1
 while running:
     
     for event in pygame.event.get():
@@ -85,7 +99,7 @@ while running:
         pixel_size = (iterations // 2) * 5
         if pixel_size == 0:
             pixel_size = 1  
-
+    
     flag_surface = pixelate(game_list[iterations][1], pixel_size)
     rect = flag_surface.get_rect(center=(width//2, height//2 - 100))
 
@@ -93,12 +107,12 @@ while running:
     text_rect = text_surface.get_rect(center=(width // 2, height // 2 + 200))
     
     duration = (pygame.time.get_ticks() - start)/1000
-    if duration < 3:
+    if duration < image_duration:
         screen.blit(flag_surface, rect)
-    if duration > 3 and duration < 5:
+    if duration > image_duration and duration < text_duration:
         screen.blit(flag_surface, rect)
         screen.blit(text_surface, text_rect)
-    if duration > 6:
+    if duration > gap:
         start = pygame.time.get_ticks()
         iterations += 1
                 
