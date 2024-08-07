@@ -77,15 +77,15 @@ pixel_size = 1
 
 
 if SPEED == 1:
-    image_duration =3
+    image_duration =4
     text_duration = image_duration + 2
     gap = text_duration + 1
 elif SPEED == 2:
-    image_duration = 2
+    image_duration = 3
     text_duration = image_duration + 1
     gap = text_duration +1
 else:
-    image_duration = 0.5
+    image_duration = 1.5
     text_duration = image_duration + 1
     gap = text_duration  +1
 while running:
