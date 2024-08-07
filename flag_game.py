@@ -3,8 +3,15 @@ import numpy as np
 import pygame
 import os
 import random
-
-GAME_LENGTH = int(input("Enter no of flags(less than 250)"))
+print("WELCOME TO GUESS THE FLAGS!!!!!!!!!!!! by parthiv")
+print("\n")
+print("==============================================================================")
+print("==============================================================================")
+print("==============================================================================")
+print("\n")
+print("GAME MODES\n1: PIXELATED \n2. NORMAL")
+GAME_MODE = int(input("ENTER GAME MODE "))
+GAME_LENGTH = int(input("Enter no of flags(less than 250) "))
 current_directory = os.getcwd()
 folder = os.path.join(current_directory, "FLAGS")
 flag_list = []
@@ -65,6 +72,7 @@ running = True
 iterations = 0
 
 start = pygame.time.get_ticks()
+pixel_size = 1  
 
 while running:
     
@@ -73,9 +81,10 @@ while running:
             running = False
 
     screen.fill((0, 0, 0))
-    pixel_size = (iterations // 2) * 5
-    if pixel_size == 0:
-        pixel_size = 1  
+    if GAME_MODE==1:
+        pixel_size = (iterations // 2) * 5
+        if pixel_size == 0:
+            pixel_size = 1  
 
     flag_surface = pixelate(game_list[iterations][1], pixel_size)
     rect = flag_surface.get_rect(center=(width//2, height//2 - 100))
