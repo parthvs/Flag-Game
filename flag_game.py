@@ -5,8 +5,8 @@ import os
 import random
 
 GAME_LENGTH = int(input("Enter no of flags(less than 250)"))
-
-folder = r"C:\Users\USER\Downloads\FLAGS"
+current_directory = os.getcwd()
+folder = os.path.join(current_directory, "FLAGS")
 flag_list = []
 
 for i in os.scandir(folder):
