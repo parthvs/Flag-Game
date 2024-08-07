@@ -67,7 +67,7 @@ width, height = 800, 600
 screen = pygame.display.set_mode((width, height))
 font = pygame.font.Font(None, 30)  # None uses the default font; you can specify a font file
 
-text_color = (255, 255, 255)  # White color
+text_color = (0,0,0)  # White color
 
 running = True
 iterations = 0
@@ -94,7 +94,7 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    screen.fill((255,255,255))
+    screen.fill((155,155,155))
     if GAME_MODE==1:
         pixel_size = (iterations // 2) * 5
         if pixel_size == 0:
